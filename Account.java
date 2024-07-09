@@ -1,128 +1,75 @@
-import java.util.Scanner;
-
-abstract class Account {
-
-    protected String first_name;
-    protected String last_name;
-    protected String email;
-    protected String password;
+public class Account extends Courses {
+    protected String firstName;
+    protected String lastName;
     protected String gender;
-    protected int age;
+    protected String username;
+    protected String password;
     protected String school;
     protected String major;
+    protected Courses courses;
 
-    //DEFAULT CONSTRUCTOR//
-    public Account(){
+    public Account() {
+
     }
-
-    //CONSTRUCTOR//
-    public Account(String first_name, String last_name, String email, String password, String gender, int age, String school, String major) {
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.password = password;
+    public Account(String firstName, String lastName, String gender, String username, String password, String school, String major, Courses course) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.gender = gender;
-        this.age = age;
+        this.username = username;
+        this.password = password;
         this.school = school;
         this.major = major;
+        this.courses = course;
     }
-
-    //SETTER METHODS//
-    public void setFirstName(String value){
-        this.first_name = value;
+    //////////////// Setter Methods /////////////////
+    public void setFirstName(String fName) {
+        this.firstName = fName;
     }
-    public void setLastName (String value){
-        this.last_name = value;
+    public void setLastNameName(String lName) {
+        this.lastName = lName;
     }
-    public void setEmail (String value){
-        this.email = value;
+    public void setGender(String gendr) {
+        this.gender = gendr;
     }
-    public void setPassword (String value){
-        this.password = value;
+    public void setUsername(String uname) {
+        this.username = uname;
     }
-    public void setGender (String value){
-        this.gender = value;
+    public void setPassword(String pword) {
+        this.password = pword;
     }
-    public void setAge (int value){
-        this.age = value;
+    public void setSchool(String schoolName) {
+        this.school = schoolName;
     }
-    public void setSchool(String value){
-        this.school = value;
+    public void setMajor(String major1) {
+        this.major = major1;
     }
-    public void setMajor(String value){
-       this. major = value;
+    //////////////// Getter Methods /////////////////
+    public String getFirstName() {
+        return this.firstName;
     }
-
-    //GETTER METHODS//
-    public String getFirstName(){
-        return first_name;
+    public String getLastNameName() {
+        return this.lastName;
     }
-    public String LastName(){
-        return last_name;
+    public String getGender() {
+        return this.gender;
     }
-    public String getEmail(){
-        return email;
+    public String getUsername() {
+        return this.username;
     }
-    public String getPassword(){
-        return password;
+    public String getPassword() {
+        return this.password;
     }
-    public String getGender(){
-        return gender;
+    public String getSchool() {
+        return this.school;
     }
-    public int getAge(){
-        return age;
+    public String getMajor() {
+        return this.major;
     }
-    public String getSchool(){
-        return school;
+    public void getCourselist() {
+        int count = 1;
+        for (String item : this.courses.courseList) {
+            System.out.println(count + ") " + item);
+            count++;
+        }
     }
-    public String getMajor(){
-        return major;
-    }
-
-    public void createAccount(){
-        Scanner scnr = new Scanner(System.in);
-        AccountDataBase accountDB = new AccountDataBase();
-
-        System.out.println("Welcome to StudyBuddy!");
-        System.out.println("Create a Free Account");
-
-        System.out.println("Please Enter");
-        System.out.println("");
-
-        System.out.print("First Name: ");
-        String firstNameInput = scnr.nextLine();
-        setFirstName(firstNameInput);
-
-
-        System.out.print("Last Name: ");
-        String lastNameInput = scnr.nextLine();
-        setLastName(lastNameInput);
-
-        System.out.print("Email: ");
-        String emailInput = scnr.nextLine();
-        setEmail(emailInput);
-
-        System.out.print("Password: ");
-        String passwordInput = scnr.nextLine();
-        setPassword(passwordInput);
-
-        System.out.print("Gender: ");
-        String genderInput = scnr.nextLine();
-        setGender(genderInput);
-
-        System.out.print("Age: ");
-        int ageInput = scnr.nextInt();
-        setAge(ageInput);
-
-        System.out.print("School: ");
-        String schoolInput = scnr.next();
-        setSchool(schoolInput);
-
-        System.out.print("Major: ");
-        String majorInput = scnr.next();
-        setMajor(majorInput);
-
-        accountDB.addToDataBase(this);
-    }
-
 }
