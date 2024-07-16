@@ -1,75 +1,69 @@
-public class Account extends Courses {
-    protected String firstName;
-    protected String lastName;
-    protected String gender;
-    protected String username;
-    protected String password;
-    protected String school;
-    protected String major;
-    protected Courses courses;
+public class Account {
+    private String username;
+    private String password;
+    private String first_name;
+    private String last_name;
+    private String gender;
+    private String date_created;
 
-    public Account() {
+    public Account(){
 
     }
-    public Account(String firstName, String lastName, String gender, String username, String password, String school, String major, Courses course) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
+
+    // Constructor
+    public Account(String username, String password, String first_name, String last_name, String gender, String date_created) {
         this.username = username;
         this.password = password;
-        this.school = school;
-        this.major = major;
-        this.courses = course;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.gender = gender;
+        this.date_created = date_created;
     }
-    //////////////// Setter Methods /////////////////
-    public void setFirstName(String fName) {
-        this.firstName = fName;
+
+
+    // Setter Methods
+    public void setUsername(String username) {
+        this.username = username;
     }
-    public void setLastNameName(String lName) {
-        this.lastName = lName;
+    public void setPassword(String password) {
+        this.password = password;
     }
-    public void setGender(String gendr) {
-        this.gender = gendr;
+    public void setFirstName(String first_name) {
+        this.first_name = first_name;
     }
-    public void setUsername(String uname) {
-        this.username = uname;
+    public void setLastName(String last_name) {
+        this.last_name = last_name;
     }
-    public void setPassword(String pword) {
-        this.password = pword;
+    public void setDateCreated(String date_created) {
+        this.date_created = date_created;
     }
-    public void setSchool(String schoolName) {
-        this.school = schoolName;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
-    public void setMajor(String major1) {
-        this.major = major1;
-    }
-    //////////////// Getter Methods /////////////////
-    public String getFirstName() {
-        return this.firstName;
-    }
-    public String getLastNameName() {
-        return this.lastName;
-    }
-    public String getGender() {
-        return this.gender;
-    }
+
+    // Getter Methods
     public String getUsername() {
-        return this.username;
+        return username;
     }
+
     public String getPassword() {
-        return this.password;
+        return password;
     }
-    public String getSchool() {
-        return this.school;
+
+    public String getFirstName() {
+        return first_name;
     }
-    public String getMajor() {
-        return this.major;
+
+    public String getLastName() {
+        return last_name;
     }
-    public void getCourselist() {
-        int count = 1;
-        for (String item : this.courses.courseList) {
-            System.out.println(count + ") " + item);
-            count++;
-        }
+
+    public String getGender() {
+        return gender;
     }
+
+    public String getDateCreated() {
+        return date_created;
+    }
+
 }
